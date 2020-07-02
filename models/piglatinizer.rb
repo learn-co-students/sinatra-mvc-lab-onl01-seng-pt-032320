@@ -1,9 +1,5 @@
 class PigLatinizer
   attr_reader :text
- 
-  def initialize(words)
-    
-  end
 
   def piglatinize(word)
     if word.start_with?("a", "e", "i", "o", "u", "y")
