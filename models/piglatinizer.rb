@@ -7,13 +7,14 @@ class PigLatinizer
   end
 
   def piglatinizer(word)
-    if word.start_with?("a", "e", "i", "o", "u", "y")
+    if word.start_with?("a", "e", "i", "o", "u", "A", "E", "I", "O", "U")
       "#{word}way"
     else
-      word = word.split(//) #turns our word into an array
-      word = word.drop(1) #removes the first letter of the word
-      word = word.join #converts the word back to a string
-      "#{word}ay" #adds the pig latin to the word and returns it
+      vowel_place = word.index(/aeiouAEIOU/)
+      
+      first_part = word.slice(0..vowel_index-1)
+      second_part = word.slice(vowel_index..-1)
+      "#{first_part + second_part}ay"
     end
   end
 end
