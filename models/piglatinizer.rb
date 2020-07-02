@@ -10,11 +10,11 @@ class PigLatinizer
     if word.start_with?("a", "e", "i", "o", "u", "A", "E", "I", "O", "U")
       "#{word}way"
     else
-      vowel_place = word.index(/aeiouAEIOU/)
-      
-      first_part = word.slice(0..vowel_index-1)
-      second_part = word.slice(vowel_index..-1)
-      "#{first_part + second_part}ay"
+      vowel = word.index(/[aAeEiIoOuU]/)
+
+      second = word.slice(0..vowel-1)
+      first = word.slice(vowel..-1)
+      "#{first + second}ay"
     end
   end
 end
