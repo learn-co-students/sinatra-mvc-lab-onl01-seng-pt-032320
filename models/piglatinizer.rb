@@ -1,16 +1,17 @@
 class PigLatinizer
   attr_reader :text
  
-  def initialize(text)
-    @text = text.downcase
+  def initialize(words)
+    
   end
 
-  def self.pigLatinize
-    if self.start_with?("a", "e", "i", "o", "u", "y")
-      word = "#{self}way"
+  def piglatinize(word)
+    if word.start_with?("a", "e", "i", "o", "u", "y")
+      word = "#{word}way"
       word
     else
-      word = self.split
+      word = word.split
       pig_lat_word = "#{word.last(word.count).join}ay"
+    end
   end
 end
